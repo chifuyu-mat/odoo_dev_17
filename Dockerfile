@@ -4,9 +4,10 @@ FROM odoo:17.0
 # 2. Cambiamos al usuario root para instalar dependencias
 USER root
 
-# 3. (NUEVO) Instalamos dependencias de Linux
-#    Necesarias para 'python-ldap' y otras librerías.
+# 3. (ACTUALIZADO) Instalamos dependencias de Linux
+#    'build-essential' (para gcc) y las librerías de 'python-ldap'
 RUN apt-get update && apt-get install -y \
+    build-essential \
     libldap2-dev \
     libsasl2-dev \
     && apt-get clean
